@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Our Cause</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .payment-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .payment-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .payment-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .payment-btn:active {
+            transform: translateY(0);
+        }
+
+        .zelle {
+            background: linear-gradient(135deg, #6d1ed4 0%, #5a1aae 100%);
+        }
+
+        .cashapp {
+            background: linear-gradient(135deg, #00d64f 0%, #00b341 100%);
+        }
+
+        .venmo {
+            background: linear-gradient(135deg, #3d95ce 0%, #2d7eb8 100%);
+        }
+
+        .paypal {
+            background: linear-gradient(135deg, #0070ba 0%, #005a94 100%);
+        }
+
+        .chime {
+            background: linear-gradient(135deg, #00e5a0 0%, #00c787 100%);
+        }
+
+        .icon {
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+
+        .info-text {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 1.6em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+
+            .payment-btn {
+                font-size: 1em;
+                padding: 14px 20px;
+            }
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.3s ease;
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 1.5em;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 2em;
+            color: #999;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover {
+            color: #333;
+        }
+
+        .modal-body {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .modal-body ol {
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+
+        .modal-body li {
+            margin: 10px 0;
+        }
+
+        .highlight {
+            background: #f0f0f0;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            color: #333;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💝 Support Our Cause</h1>
+        <p class="subtitle">Choose your preferred payment method below</p>
+
+        <div class="payment-buttons">
+            <a href="https://cash.app/$RobertBjorklund7" class="payment-btn cashapp" target="_blank">
+                <span class="icon">💵</span>
+                Send via Cash App
+            </a>
+
+            <a href="https://venmo.com/u/christyhannah" class="payment-btn venmo" target="_blank">
+                <span class="icon">💙</span>
+                Send via Venmo
+            </a>
+
+            <a href="https://paypal.me/christymoore1976" class="payment-btn paypal" target="_blank">
+                <span class="icon">🌐</span>
+                Send via PayPal
+            </a>
+
+            <a href="#" onclick="openModal('zelleModal'); return false;" class="payment-btn zelle">
+                <span class="icon">💜</span>
+                Send via Zelle
+            </a>
+
+            <a href="#" onclick="openModal('chimeModal'); return false;" class="payment-btn chime">
+                <span class="icon">💚</span>
+                Send via Chime
+            </a>
+        </div>
+
+        <div class="info-text">
+            <strong>Thank you for your generosity!</strong><br>
+            Your contribution makes a real difference. All payments are processed securely through your chosen payment platform.
+        </div>
+    </div>
+
+    <!-- Zelle Modal -->
+    <div id="zelleModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">💜 Send via Zelle</h2>
+                <button class="close-btn" onclick="closeModal('zelleModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>To send money via Zelle:</p>
+                <ol>
+                    <li>Open your banking app or Zelle app</li>
+                    <li>Select "Send Money with Zelle"</li>
+                    <li>Enter this phone number:</li>
+                </ol>
+                <div class="highlight">302-765-7593</div>
+                <p style="margin-top: 15px;">Enter the amount and complete the transfer!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chime Modal -->
+    <div id="chimeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">💚 Send via Chime</h2>
+                <button class="close-btn" onclick="closeModal('chimeModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>To send money via Chime:</p>
+                <ol>
+                    <li>Open the Chime app</li>
+                    <li>Tap "Pay Anyone"</li>
+                    <li>Search for or enter this $ChimeSign:</li>
+                </ol>
+                <div class="highlight">$Christy-Moore-50</div>
+                <p style="margin-top: 15px;">Enter the amount and send!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>
